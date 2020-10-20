@@ -1,0 +1,27 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,700&display=swap');
+
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@layer base {
+    #root {
+        @apply bg-theme-dark text-white min-h-screen flex items-center justify-center font-body
+    }
+}
+
+@layer utilities {
+    .text-shadow-black {
+        text-shadow: black 2px 1px 0;
+    }
+    .text-shadow-purple {
+        text-shadow: theme('colors.theme-purple') 1px 1px 0;
+    }
+}
+
+.large-title {
+    @apply mb-2 font-bold uppercase italic text-shadow-purple text-lg mt-4 mb-1;
+}

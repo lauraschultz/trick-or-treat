@@ -33,14 +33,18 @@ export class FB {
   // };
 
   subscribeToCandiesChanged = (callback: (newVal: Candy[]) => void) => {
-    this.rootRef.child("candies").on("value", (snp) =>
-      callback(
-        Object.entries(snp.val()).map(([id, name]) => ({
-          id: id,
-          name: name as string,
-        }))
-      )
-    );
+    this.rootRef.child("candies").on("value", (snp) => {
+      if (!snp.exists()) {
+        callback([]);
+      } else {
+        callback(
+          Object.entries(snp.val()).filter(([id, c]) => (c as any).available).map(([id, c]) => ({
+            id: id,
+            name: (c as any).name as string,
+          }))
+        );
+      }
+    });
   };
 
   unSubscribeToCandiesChanged = () => {
@@ -49,11 +53,17 @@ export class FB {
 
   subscribeToOrderSubmitted = (callback: (order: Order) => void) => {
     this.rootRef.child("orders").on("child_added", async (snp, _) => {
-      const candies = await this.rootRef.child("candies").once('value')
+      const candies = await (await this.rootRef.child("candies").once("value")).val() || {};
       // console.log(`new order is ${JSON.stringify(newOrder)}`);
       callback({
         timestamp: new Date(+snp.key!),
-        candies: snp.val().split(",").map((candyId:string) => ({id: candyId, name: candies.val()[candyId] || 'no longer available'})),
+        candies: snp
+          .val()
+          .split(",")
+          .map((candyId: string) => ({
+            id: candyId,
+            name: candies[candyId]?.name || "no longer available",
+          })),
       });
     });
   };
@@ -64,11 +74,11 @@ export class FB {
 
   addCandy = (candyName: string) => {
     const key = this.rootRef.child("candies").push().key!;
-    this.rootRef.child("candies").update({ [key]: candyName });
+    this.rootRef.child("candies").update({ [key]: {name: candyName, available: true} });
   };
 
   removeCandy = (candyId: string) => {
-    this.rootRef.child(`candies/${candyId}`).remove();
+    this.rootRef.child(`candies/${candyId}`).update({available: false});
   };
 
   submitOrder = (candyIds: string[]) => {

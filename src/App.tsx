@@ -1,11 +1,14 @@
 import React from "react";
 import { Redirect, Route, Switch } from "react-router";
-import { Link } from "react-router-dom";
 import RequestPage from "./RequestPage";
 import SendPage from "./SendPage";
+import "./comp.css"
+import Home from "./Home";
 
 function App() {
   return (
+    <>
+    <div className="hidden md:inline fixed bg-ghosts bg-repeat-y h-screen w-48 z-0 bg-contain ml-12 opacity-75 left-0 top-0"></div>
     <Switch>
       <Route path="/requester" exact>
         <RequestPage />
@@ -14,14 +17,13 @@ function App() {
         <SendPage />
       </Route>
       <Route path="/" exact>
-        I am...
-        <Link to="/requester">requesting candy</Link>
-        <Link to="/sender">sending candy</Link>
+        <Home />
       </Route>
       <Route path="/">
         <Redirect to="/" />
       </Route>
     </Switch>
+    </>
   );
 }
 
