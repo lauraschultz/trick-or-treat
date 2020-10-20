@@ -7,23 +7,15 @@ const RequestPage: React.FC = () => {
   let [checkedCandies, setCheckedCandies] = useState<{
     [candyId: string]: boolean;
   }>({});
-  let initialized = useRef(false);
-  // useEffect(() => {
-  //   candies.forEach((c) => (checkedCandies[c.id] = true));
-  // }, [candies]);
 
-  const toggleCheckbox = (candyId:string) => {
-    setCheckedCandies(cC => ({...cC, [candyId]: !cC[candyId]}))
-  }
+  const toggleCheckbox = (candyId: string) => {
+    setCheckedCandies((cC) => ({ ...cC, [candyId]: !cC[candyId] }));
+  };
 
   useEffect(() => {
-    // if(initialized.current){
-     fB.subscribeToCandiesChanged((newCandies) => {
+    fB.subscribeToCandiesChanged((newCandies) => {
       setCandies(newCandies);
     });
-    // initialized.current = true; 
-    // }
-    
 
     return () => fB.unSubscribeToCandiesChanged();
   }, []);
@@ -34,13 +26,21 @@ const RequestPage: React.FC = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          fB.submitOrder(Object.entries(checkedCandies).filter(([_, isChecked]) => isChecked).map(([id, _]) => id));
+          fB.submitOrder(
+            Object.entries(checkedCandies)
+              .filter(([_, isChecked]) => isChecked)
+              .map(([id, _]) => id)
+          );
           setCheckedCandies({});
         }}
       >
         {candies.map((c) => (
           <label key={c.id}>
-            <input type="checkbox" checked={checkedCandies[c.id]} onChange={e => toggleCheckbox(c.id)}/>
+            <input
+              type="checkbox"
+              checked={checkedCandies[c.id]}
+              onChange={(e) => toggleCheckbox(c.id)}
+            />
             {c.name}
           </label>
         ))}
