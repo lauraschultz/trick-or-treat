@@ -7,19 +7,19 @@ import SendPage from "./SendPage";
 function App() {
   return (
     <Switch>
-      <Route path="/requester" exact>
+      <Route path="./requester" exact>
         <RequestPage />
       </Route>
-      <Route path="/sender" exact>
+      <Route path="./sender" exact>
         <SendPage />
       </Route>
-      <Route path="/" exact>
+      <Route path="./" exact>
         I am...
-        <Link to="/requester">requesting candy</Link>
-        <Link to="/sender">sending candy</Link>
+        <Link to="./requester">requesting candy</Link>
+        <Link to="./sender">sending candy</Link>
       </Route>
-      <Route path="/">
-        <Redirect to="/" />
+      <Route path="./">
+        <Redirect to="./" />
       </Route>
     </Switch>
   );
