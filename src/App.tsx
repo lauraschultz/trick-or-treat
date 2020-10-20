@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect, Route, Switch } from "react-router";
+import { Route, Switch } from "react-router";
 import RequestPage from "./RequestPage";
 import SendPage from "./SendPage";
 import "./comp.css"
@@ -18,9 +18,6 @@ function App() {
       </Route>
       <Route path="/" exact>
         <Home />
-      </Route>
-      <Route path="/">
-        <Redirect to="/" />
       </Route>
     </Switch>
     </>
