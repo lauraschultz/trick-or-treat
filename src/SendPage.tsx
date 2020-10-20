@@ -13,6 +13,7 @@ const SendPage: React.FC = () => {
   let [playDoorbell] = useSound(doorbell);
 
   useEffect(() => {
+    console.log(`useEffect`)
     // hack so that it doesnt scream when opening the app for the first time
     let canPlay = false;
     setInterval(() => (canPlay = true), 900);
@@ -28,6 +29,7 @@ const SendPage: React.FC = () => {
     return () => {
       fB.unSubscribeToCandiesChanged();
       fB.unSubscribeToOrderSubmitted();
+      setOrders([])
     };
   }, [playDoorbell]);
 
@@ -43,6 +45,7 @@ const SendPage: React.FC = () => {
     <div className="max-w-md p-2 z-10">
       <h2 className="large-title">Orders:</h2>
       <ul className="divide-y divide-white divide-opacity-25 ml-2">
+        {orders.length === 0 && <p>No orders to show.</p>}
         {orders.map((o) => (
           <li key={o.timestamp?.getTime()} className="px-2 py-1">
             <strong>{getTimeString(o.timestamp)}&nbsp;&nbsp;</strong>
@@ -52,6 +55,7 @@ const SendPage: React.FC = () => {
       </ul>
       <h2 className="large-title"> Current candies:</h2>
       <ul className="divide-y divide-white divide-opacity-25 ml-2">
+      {orders.length === 0 && <p>No candies to show.</p>}
         {candies.map((c) => (
           <li key={c.id} className="px-2 py-1 flex items-center">
             {c.name}{" "}

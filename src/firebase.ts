@@ -38,10 +38,12 @@ export class FB {
         callback([]);
       } else {
         callback(
-          Object.entries(snp.val()).filter(([id, c]) => (c as any).available).map(([id, c]) => ({
-            id: id,
-            name: (c as any).name as string,
-          }))
+          Object.entries(snp.val())
+            .filter(([id, c]) => (c as any).available)
+            .map(([id, c]) => ({
+              id: id,
+              name: (c as any).name as string,
+            }))
         );
       }
     });
@@ -53,7 +55,8 @@ export class FB {
 
   subscribeToOrderSubmitted = (callback: (order: Order) => void) => {
     this.rootRef.child("orders").on("child_added", async (snp, _) => {
-      const candies = await (await this.rootRef.child("candies").once("value")).val() || {};
+      const candies =
+        (await (await this.rootRef.child("candies").once("value")).val()) || {};
       // console.log(`new order is ${JSON.stringify(newOrder)}`);
       callback({
         timestamp: new Date(+snp.key!),
@@ -74,18 +77,21 @@ export class FB {
 
   addCandy = (candyName: string) => {
     const key = this.rootRef.child("candies").push().key!;
-    this.rootRef.child("candies").update({ [key]: {name: candyName, available: true} });
+    this.rootRef
+      .child("candies")
+      .update({ [key]: { name: candyName, available: true } });
   };
 
   removeCandy = (candyId: string) => {
-    this.rootRef.child(`candies/${candyId}`).update({available: false});
+    this.rootRef.child(`candies/${candyId}`).update({ available: false });
   };
 
   submitOrder = (candyIds: string[]) => {
-    // const key = this.rootRef.child("orders").push().key!;
-    this.rootRef.child("orders").update({
-      [new Date().getTime()]: candyIds.join(","),
-    });
+    if (candyIds.length > 0) {
+      this.rootRef.child("orders").update({
+        [new Date().getTime()]: candyIds.join(","),
+      });
+    }
   };
 }
 
