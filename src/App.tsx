@@ -8,7 +8,7 @@ import Home from "./Home";
 function App() {
   return (
     <>
-    <div className="hidden md:inline fixed bg-ghosts bg-repeat-y h-screen w-48 z-0 bg-contain ml-12 opacity-75 left-0 top-0"></div>
+    <div className="hidden sm:inline fixed bg-ghosts bg-repeat-y h-screen w-48 z-0 bg-contain ml-4 md:ml-12 lg:ml-32 opacity-75 left-0 top-0"></div>
     <Switch>
       <Route path="/requester" exact>
         <RequestPage />

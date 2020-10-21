@@ -807,10 +807,6 @@ video {
   margin-left: 1rem;
 }
 
-.ml-12{
-  margin-left: 3rem;
-}
-
 .max-w-md{
   max-width: 28rem;
 }
@@ -1037,6 +1033,10 @@ video {
       max-width: 1280px;
     }
   }
+
+  .sm\:inline{
+    display: inline;
+  }
 }
 
 @media (min-width: 768px){
@@ -1068,8 +1068,8 @@ video {
     }
   }
 
-  .md\:inline{
-    display: inline;
+  .md\:ml-12{
+    margin-left: 3rem;
   }
 }
 
@@ -1100,6 +1100,10 @@ video {
     .lg\:container{
       max-width: 1280px;
     }
+  }
+
+  .lg\:ml-32{
+    margin-left: 8rem;
   }
 }
 

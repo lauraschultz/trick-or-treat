@@ -1,5 +1,6 @@
 {
   "name": "halloween-app",
+  "homepage": "https://halloween-candy-request.netlify.app//trickOrTreat",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -16,7 +17,6 @@
     "@types/react-dom": "^16.9.8",
     "@types/react-router-dom": "^5.1.6",
     "firebase": "^7.24.0",
-    "gh-pages": "^3.1.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-router": "^5.2.0",
