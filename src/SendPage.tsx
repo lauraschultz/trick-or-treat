@@ -16,7 +16,7 @@ const SendPage: React.FC = () => {
     console.log(`useEffect`)
     // hack so that it doesnt scream when opening the app for the first time
     let canPlay = false;
-    setInterval(() => (canPlay = true), 900);
+    setInterval(() => (canPlay = true), 1500);
     fB.subscribeToCandiesChanged((newCandies) => setCandies(newCandies));
 
     fB.subscribeToOrderSubmitted((newOrder: Order) => {
