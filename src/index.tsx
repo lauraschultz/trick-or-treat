@@ -5,8 +5,8 @@ import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter >
-    {/* basename="/trickOrTreat" */}
+    <BrowserRouter basename="/trickOrTreat">
+    {/*  */}
       <App />
     </BrowserRouter>
   </React.StrictMode>,
