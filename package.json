@@ -1,6 +1,5 @@
 {
   "name": "halloween-app",
-  "homepage": "https://halloween-candy-request.netlify.app/trickOrTreat/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
