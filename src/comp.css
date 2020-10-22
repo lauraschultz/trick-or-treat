@@ -751,6 +751,14 @@ video {
   flex: 0 1 auto;
 }
 
+.float-right{
+  float: right;
+}
+
+.font-normal{
+  font-weight: 400;
+}
+
 .font-bold{
   font-weight: 700;
 }
@@ -783,8 +791,8 @@ video {
   margin-right: 0.25rem;
 }
 
-.mt-2{
-  margin-top: 0.5rem;
+.ml-1{
+  margin-left: 0.25rem;
 }
 
 .mr-2{
@@ -793,6 +801,10 @@ video {
 
 .ml-2{
   margin-left: 0.5rem;
+}
+
+.mt-3{
+  margin-top: 0.75rem;
 }
 
 .ml-3{

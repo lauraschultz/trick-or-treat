@@ -93,6 +93,10 @@ export class FB {
       });
     }
   };
+
+  deleteAllOrders = () => {
+    this.rootRef.child('orders').set(false)
+  }
 }
 
 let fB = new FB();

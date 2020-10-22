@@ -9,6 +9,9 @@ const RequestPage: React.FC = () => {
   let [checkedCandies, setCheckedCandies] = useState<{
     [candyId: string]: boolean;
   }>({});
+  let [showSentMsg, setShowSetMsg] = useState(false)
+  let [intervalId, setIntervalId] = useState<NodeJS.Timeout>();
+
 
   const toggleCheckbox = (candyId: string) => {
     setCheckedCandies((cC) => ({ ...cC, [candyId]: !cC[candyId] }));
@@ -35,6 +38,12 @@ const RequestPage: React.FC = () => {
               .map(([id, _]) => id)
           );
           setCheckedCandies({});
+          setShowSetMsg(true);
+          if(intervalId){
+            clearInterval(intervalId);
+          }
+          setIntervalId(setInterval(() => setShowSetMsg(false), 4000))
+
         }}
       >
         {candies.map((c) => (
@@ -42,7 +51,7 @@ const RequestPage: React.FC = () => {
             <label
               key={c.id}
               className={
-                "inline-block flex items-center p-2 border-2 border-white rounded " +
+                "flex items-center p-2 border-2 border-white rounded " +
                 (checkedCandies[c.id] ? "bg-white text-theme-dark" : "")
               }
             >
@@ -66,6 +75,10 @@ const RequestPage: React.FC = () => {
         >
           submit
         </button>
+        <div className={"ml-1 text-xs font-normal " + (showSentMsg ? "" : "opacity-0")}>
+            request sent.
+        </div>
+
       </form>
     </div>
   );

@@ -13,7 +13,7 @@ const SendPage: React.FC = () => {
   let [playDoorbell] = useSound(doorbell);
 
   useEffect(() => {
-    console.log(`useEffect`)
+    console.log(`useEffect`);
     // hack so that it doesnt scream when opening the app for the first time
     let canPlay = false;
     setInterval(() => (canPlay = true), 1500);
@@ -29,7 +29,7 @@ const SendPage: React.FC = () => {
     return () => {
       fB.unSubscribeToCandiesChanged();
       fB.unSubscribeToOrderSubmitted();
-      setOrders([])
+      setOrders([]);
     };
   }, [playDoorbell]);
 
@@ -43,7 +43,19 @@ const SendPage: React.FC = () => {
 
   return (
     <div className="max-w-md p-2 z-10">
-      <h2 className="large-title">Orders:</h2>
+      <h2 className="large-title">
+        Orders:
+        <button
+          onClick={() => {
+            fB.deleteAllOrders();
+            setOrders([]);
+          }}
+          className="float-right text-red-600 border border-red-800 px-2 py-1 ml-3 text-xs rounded"
+        >
+          <FontAwesomeIcon icon={faTrash} className="mr-1" />
+          delete all orders
+        </button>
+      </h2>
       <ul className="divide-y divide-white divide-opacity-25 ml-2">
         {orders.length === 0 && <p>No orders to show.</p>}
         {orders.map((o) => (
@@ -55,7 +67,7 @@ const SendPage: React.FC = () => {
       </ul>
       <h2 className="large-title"> Current candies:</h2>
       <ul className="divide-y divide-white divide-opacity-25 ml-2">
-      {orders.length === 0 && <p>No candies to show.</p>}
+        {candies.length === 0 && <p>No candies to show.</p>}
         {candies.map((c) => (
           <li key={c.id} className="px-2 py-1 flex items-center">
             {c.name}{" "}
@@ -69,7 +81,7 @@ const SendPage: React.FC = () => {
           </li>
         ))}
       </ul>
-      <span className="mt-2 ml-2 font-bold">Add candy:</span>
+      <span className="mt-3 ml-2 font-bold">Add candy:</span>
 
       <form
         onSubmit={(e) => {
