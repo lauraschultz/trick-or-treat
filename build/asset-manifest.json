@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/trickOrTreat/static/css/main.e7e35c1e.chunk.css",
-    "main.js": "/trickOrTreat/static/js/main.6774136b.chunk.js",
-    "main.js.map": "/trickOrTreat/static/js/main.6774136b.chunk.js.map",
+    "main.css": "/trickOrTreat/static/css/main.ab39b2b5.chunk.css",
+    "main.js": "/trickOrTreat/static/js/main.08ae7ca5.chunk.js",
+    "main.js.map": "/trickOrTreat/static/js/main.08ae7ca5.chunk.js.map",
     "runtime-main.js": "/trickOrTreat/static/js/runtime-main.b8068ba1.js",
     "runtime-main.js.map": "/trickOrTreat/static/js/runtime-main.b8068ba1.js.map",
-    "static/js/2.2bf40997.chunk.js": "/trickOrTreat/static/js/2.2bf40997.chunk.js",
-    "static/js/2.2bf40997.chunk.js.map": "/trickOrTreat/static/js/2.2bf40997.chunk.js.map",
+    "static/js/2.81bbf276.chunk.js": "/trickOrTreat/static/js/2.81bbf276.chunk.js",
+    "static/js/2.81bbf276.chunk.js.map": "/trickOrTreat/static/js/2.81bbf276.chunk.js.map",
     "static/js/3.99d2a2b5.chunk.js": "/trickOrTreat/static/js/3.99d2a2b5.chunk.js",
     "static/js/3.99d2a2b5.chunk.js.map": "/trickOrTreat/static/js/3.99d2a2b5.chunk.js.map",
     "index.html": "/trickOrTreat/index.html",
-    "precache-manifest.566e4970e4f6c476e487d8b96cf0491e.js": "/trickOrTreat/precache-manifest.566e4970e4f6c476e487d8b96cf0491e.js",
+    "precache-manifest.81d13469ee9b29bd79d29c9f59e6fb8f.js": "/trickOrTreat/precache-manifest.81d13469ee9b29bd79d29c9f59e6fb8f.js",
     "service-worker.js": "/trickOrTreat/service-worker.js",
-    "static/css/main.e7e35c1e.chunk.css.map": "/trickOrTreat/static/css/main.e7e35c1e.chunk.css.map",
-    "static/js/2.2bf40997.chunk.js.LICENSE.txt": "/trickOrTreat/static/js/2.2bf40997.chunk.js.LICENSE.txt",
+    "static/css/main.ab39b2b5.chunk.css.map": "/trickOrTreat/static/css/main.ab39b2b5.chunk.css.map",
+    "static/js/2.81bbf276.chunk.js.LICENSE.txt": "/trickOrTreat/static/js/2.81bbf276.chunk.js.LICENSE.txt",
     "static/js/3.99d2a2b5.chunk.js.LICENSE.txt": "/trickOrTreat/static/js/3.99d2a2b5.chunk.js.LICENSE.txt",
     "static/media/doorbell.mp3": "/trickOrTreat/static/media/doorbell.e5ebc927.mp3",
     "static/media/comp.css": "/trickOrTreat/static/media/ghosts.016b5386.png"
   },
   "entrypoints": [
     "static/js/runtime-main.b8068ba1.js",
-    "static/js/2.2bf40997.chunk.js",
-    "static/css/main.e7e35c1e.chunk.css",
-    "static/js/main.6774136b.chunk.js"
+    "static/js/2.81bbf276.chunk.js",
+    "static/css/main.ab39b2b5.chunk.css",
+    "static/js/main.08ae7ca5.chunk.js"
   ]
 }

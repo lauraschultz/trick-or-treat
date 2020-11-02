@@ -1,0 +1,13 @@
+[build]
+    base = "/"
+    publish = "build/"
+
+[[redirects]]
+    from = "/trickOrTreat/static/*"
+    to = "/static/:splat"
+    status = 200
+
+[[redirects]]
+    from = "/trickOrTreat/*"
+    to = "/index.html"
+    status = 200
